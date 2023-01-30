@@ -1,0 +1,14 @@
+.icons {
+  font-size: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.icons li a {
+  transition: all 0.8s;
+}
+
+.icons li a:hover {
+  transform: scale(1.2);
+  color: red;
+}

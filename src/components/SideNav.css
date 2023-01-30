@@ -1,0 +1,32 @@
+.side-navbar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.side-navbar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.side-navbar a:hover {
+  color: #f1f1f1;
+}
+
+.side-navbar .active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.openSide-btn {
+  font-size: 2rem;
+}

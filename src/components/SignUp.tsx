@@ -1,0 +1,23 @@
+import React, { useState } from "react";
+import "./SignUp.css";
+import SignUpModal from "./SignUpModal";
+
+const SignUp: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+  const openModal = () => setShowModal(true);
+  return (
+    <div>
+      <button
+        className="bg-red-600 text-white rounded-lg py-2 px-4 transition duration-1000 ease-in-out hover:bg-red-500"
+        onClick={openModal}
+      >
+        Get Started
+      </button>
+      {showModal ? (
+        <SignUpModal closeModal={() => setShowModal(false)} />
+      ) : null}
+    </div>
+  );
+};
+
+export default SignUp;
