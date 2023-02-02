@@ -1,92 +1,94 @@
 import React, { useState } from "react";
 import "./SideNav.css";
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import logoimage from "../images/TheCharlotteBenefit.webp";
+import {
+  AiOutlineUser,
+  AiOutlineCopy,
+  AiOutlineDesktop,
+  AiOutlineFileSearch,
+  AiOutlineCode,
+} from "react-icons/ai";
 
-const SideNavbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleResourcesDropdown = () => {
-    setShowResourcesDropdown(!showResourcesDropdown);
-  };
-
+const SideNavBar = () => {
+  const [isExpanded, setExpandState] = useState(false);
+  const menuItems = [
+    {
+      text: "Profile",
+      icon: <AiOutlineUser />,
+      link: "/profile",
+    },
+    {
+      text: "Resources",
+      icon: <AiOutlineCopy />,
+      link: "/profile/resources",
+    },
+    {
+      text: "Courses",
+      icon: <AiOutlineDesktop />,
+      link: "/profile/courses",
+    },
+    {
+      text: "Opportunities",
+      icon: <AiOutlineFileSearch />,
+      link: "/profile/opportunities",
+    },
+    {
+      text: "Practice (Beta)",
+      icon: <AiOutlineCode />,
+      link: "/profile/practice",
+    },
+  ];
   return (
-    <>
-      <button className="openSide-btn" onClick={handleToggle}>
-        <AiOutlineAppstoreAdd />
-      </button>
-      {isOpen && (
-        <aside className="side-navbar">
-          <button onClick={handleToggle} className="close-button2">
-            Close
+    <div
+      className={
+        isExpanded
+          ? "side-nav-container"
+          : "side-nav-container side-nav-container-NX"
+      }
+    >
+      <div className="nav-upper">
+        <div className="nav-heading">
+          {isExpanded && (
+            <div className="nav-brand">
+              <img src={logoimage} alt="logo"></img>
+              <h2>The Charlotte Benefit</h2>
+            </div>
+          )}
+          <button
+            className={
+              isExpanded
+                ? "hamburger2 hamburger2-in"
+                : "hamburger2 hamburger2-out"
+            }
+            onClick={() => setExpandState(!isExpanded)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-          <nav>
-            <ul className="side-navbar-list">
-              <li className="side-navbar-list-item">
-                <a href="#profile" className="side-navbar-list-item-link">
-                  Profile
-                </a>
-              </li>
-              <li className="side-navbar-list-item">
-                <a
-                  href="#resources"
-                  className="side-navbar-list-item-link"
-                  onClick={handleResourcesDropdown}
-                >
-                  Resources
-                </a>
-                {showResourcesDropdown && (
-                  <ul className="resources-dropdown">
-                    <li className="resources-dropdown-item">
-                      <a
-                        href="#resource1"
-                        className="resources-dropdown-item-link"
-                      >
-                        Videos
-                      </a>
-                    </li>
-                    <li className="resources-dropdown-item">
-                      <a
-                        href="#resource2"
-                        className="resources-dropdown-item-link"
-                      >
-                        Courses
-                      </a>
-                    </li>
-                    <li className="resources-dropdown-item">
-                      <a
-                        href="#resource3"
-                        className="resources-dropdown-item-link"
-                      >
-                        Documentation
-                      </a>
-                    </li>
-                    <li className="resources-dropdown-item">
-                      <a
-                        href="#resource3"
-                        className="resources-dropdown-item-link"
-                      >
-                        Assesments
-                      </a>
-                    </li>
-                  </ul>
-                )}
-              </li>
-              <li className="side-navbar-list-item">
-                <a href="#courses" className="side-navbar-list-item-link">
-                  Courses
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </aside>
-      )}
-    </>
+        </div>
+        <div className="nav-menu">
+          {menuItems.map(({ text, icon, link }, index) => (
+            <a
+              href={link}
+              className={isExpanded ? "menu-item" : "menu-item menu-item-NX"}
+              key={index}
+              onClick={() => setExpandState(false)}
+            >
+              <div className="icon-class">{icon}</div>
+              {isExpanded && <p>{text}</p>}
+              {isExpanded && <div className="tooltip">{text}</div>}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="nav-footer">
+        <div className="nav-detais">
+          <div className="navIcon"></div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default SideNavbar;
+export default SideNavBar;

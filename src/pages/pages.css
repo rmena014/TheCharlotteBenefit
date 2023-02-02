@@ -1,0 +1,43 @@
+/* Profile Page CSS */
+.profile-main,
+.resources-main,
+.opportunities-main,
+.courses-main,
+.practice-main {
+  margin-left: 56px;
+}
+
+/* Courses Page CSS */
+
+.course-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.course-card {
+  width: 300px;
+  height: 400px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.course-name {
+  margin-top: 0;
+  font-weight: 800;
+}
+
+.course-info {
+  font-weight: 200;
+}
+
+.course-date {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.course-instructor {
+  font-weight: bolder;
+}
+/* Resources Page css */

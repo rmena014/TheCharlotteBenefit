@@ -12,3 +12,18 @@
   transform: scale(1.2);
   color: red;
 }
+
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links {
+    margin-top: 20px;
+  }
+
+  .icons {
+    justify-content: center;
+  }
+}

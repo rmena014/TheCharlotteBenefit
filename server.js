@@ -3,6 +3,7 @@ const cors = require("cors");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const app = express();
+const path = require("path");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -42,53 +43,98 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
-app.get(`/api/users/:email`, (req, res) => {
+app.get("/api/users/:email", (req, res) => {
   const email = req.params.email;
-  connection.query(
-    "SELECT * FROM Users WHERE email = ?",
-    [email],
-    (error, results) => {
-      if (error) throw error;
-      if (results.length > 0) {
-        res.json(results[0]);
-      } else {
-        res.status(404).json({ message: "User not found" });
-      }
+  const query = `SELECT name, email, role  FROM Users WHERE email = '${email}'`;
+  connection.query(query, (error, results) => {
+    if (error) {
+      res.status(500).json({ error });
     }
-  );
+    res.json(results);
+  });
 });
 
 app.get("/api/users", (req, res) => {
-  connection.query("SELECT * FROM Users", (error, results) => {
-    if (error) throw error;
-    if (results.length > 0) {
-      res.json(results);
-    } else {
-      res.status(404).json({ message: "No users found" });
+  connection.query(
+    "SELECT user_id, email, role FROM Users",
+    (error, results) => {
+      if (error) throw error;
+      if (results.length > 0) {
+        res.json(results);
+      } else {
+        res.status(404).json({ message: "No users found" });
+      }
     }
-  });
+  );
 });
 
 app.post("/api/login", (req, res) => {
   console.log(req.body);
   const { email, password } = req.body;
   connection.query(
-    "SELECT * FROM Users WHERE email = ? AND password = ?",
-    [email, password],
+    "SELECT * FROM Users WHERE email = ?",
+    [email],
     (error, results) => {
       if (error) {
         console.log(error);
         throw error;
       }
       if (results.length > 0) {
-        // Log the user in
-        res.json({ message: "Log in successful" });
+        const user = results[0];
+        if (user.password === password) {
+          // Log the user in
+          res.json({ message: "Log in successful" });
+        } else {
+          res.status(401).json({ message: "Invalid email or password" });
+        }
       } else {
         res.status(401).json({ message: "Invalid email or password" });
       }
     }
   );
 });
+
+app.get("/api/courses", (req, res) => {
+  let query = "SELECT * FROM Courses";
+  if (req.query.name) {
+    query += ` WHERE name LIKE '%${req.query.name}%'`;
+  }
+  connection.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json(results);
+  });
+});
+
+app.get("/api/training-materials", (req, res) => {
+  let query = "SELECT * FROM Training_Materials";
+  let type = req.query.type;
+
+  if (type) {
+    query += " WHERE type = ?";
+  }
+  connection.query(query, [type], (err, results) => {
+    if (err) {
+      console.error("Error retrieving data from database: " + err.stack);
+      return res.status(500).send({
+        error: "Error retrieving data from database",
+      });
+    }
+    res.send(results);
+  });
+});
+
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
+});
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

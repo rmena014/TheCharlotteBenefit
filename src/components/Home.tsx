@@ -8,6 +8,9 @@ import "./Footer.css";
 import ContactForm from "./ContactForm";
 import Login from "./Login";
 import HamburgerMenu from "./HamburgerMenu";
+import AboutUsInfo from "./AboutUsInfo";
+import Slider from "./Slider";
+import MissionStatementInfo from "./MissionStatementInfo";
 
 const Home: React.FC = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -94,6 +97,7 @@ const Home: React.FC = () => {
             resources and take the first step towards a brighter, more rewarding
             future today.
           </p>
+          <Slider />
           <div>
             <SignUp />
             {/* <button
@@ -107,20 +111,16 @@ const Home: React.FC = () => {
       </Element>
       <Element name="section2">
         <section className="section2">
-          <h1 className="section-title">About Us.</h1>
-          <p className="section2-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            error fugiat, excepturi et quisquam officia quibusdam quo ad eaque
-            repellat maiores molestias unde sit nesciunt voluptatum id nulla
-            quasi doloremque.
-          </p>
+          <h1 className="section-title">How We Work.</h1>
+          <p className="section2-text"></p>
+          <AboutUsInfo />
         </section>
       </Element>
       <Element name="section3">
         <section className="section3">
           <h1 className="section-title">Our Mission.</h1>
           <p className="section3-text">
-            Our mission is to empower and guide adults in their pursuit of
+            {/* Our mission is to empower and guide adults in their pursuit of
             career success through non-traditional paths. We strive to provide a
             comprehensive and supportive platform that offers a wide range of
             resources including tutorials, videos, and documentation. Our goal
@@ -129,8 +129,9 @@ const Home: React.FC = () => {
             professional aspirations, whether it's transitioning into a new
             field or advancing in their current one. We are dedicated to helping
             our users take control of their career journey and reach their full
-            potential.
+            potential. */}
           </p>
+          <MissionStatementInfo />
         </section>
       </Element>
       <Element name="section4">

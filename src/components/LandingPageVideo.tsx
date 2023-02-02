@@ -10,7 +10,7 @@ const LandingPageVideo: React.FC = () => {
       <div className="overlay">
         <video src={videoBG} autoPlay loop muted />
       </div>
-      <img className="cb-logo" src={logoImage} alt="Logo" />
+      {/* <img className="cb-logo" src={logoImage} alt="Logo" /> */}
       <div className="content">
         <Link to="/home">
           <button className="site-button">Enter</button>

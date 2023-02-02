@@ -1,32 +1,144 @@
-.side-navbar {
+.side-nav-container {
+  background-color: black;
+  width: 300px;
   height: 100%;
-  width: 200px;
   position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #333;
-  overflow-x: hidden;
-  padding-top: 20px;
+  color: white;
+  transition: 0.4s;
 }
 
-.side-navbar a {
-  padding: 6px 8px 6px 16px;
+.side-nav-container-NX {
+  width: 55px;
+}
+
+.nav-upper,
+.nav-heading,
+.nav-menu,
+.menu-item {
+  display: grid;
+}
+
+.nav-heading {
+  grid-template-columns: 2fr, 1fr;
+  grid-template-rows: 1fr;
+  height: 75px;
+}
+
+.nav-brand {
+  display: flex;
+}
+
+.nav-brand img {
+  width: 40px;
+  padding: 0 10px;
+}
+
+.hamburger2 {
+  position: absolute;
+  right: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  margin: auto;
+  background-color: white;
+  border: 2px solid lightblue;
+  padding: 20px;
+  border-radius: 90px;
+  height: 71px;
+  width: 74px;
+}
+
+.hamburger2 span {
+  display: block;
+  margin-top: 5px;
+  background-color: lightblue;
+  border-radius: 15px;
+  height: 4px;
+  width: 30px;
+
+  transition: 0.4s;
+}
+
+.hamburger2-in:hover span:nth-child(1) {
+  width: 25px;
+  transform: translate(-3px, 8px) rotate(30deg);
+}
+
+.hamburger2-in:hover span:nth-child(2) {
+  display: none;
+}
+
+.hamburger2-in:hover span:nth-child(3) {
+  width: 25px;
+  transform: translate(-3px, -8px) rotate(-30deg);
+}
+
+.hamburger2-out:hover span:nth-child(1) {
+  width: 25px;
+  transform: translate(0px, 8px) rotate(-30deg);
+}
+
+.hamburger2-out:hover span:nth-child(2) {
+  display: none;
+}
+
+.hamburger2-out:hover span:nth-child(3) {
+  width: 25px;
+  transform: translate(0px, -8px) rotate(30deg);
+}
+
+.nav-menu {
+  grid-template-rows: repeat(7, 1fr);
+  margin-top: 50px;
+}
+
+.menu-item {
+  height: 57px;
+  width: 16em;
+  display: flex;
+  color: white;
   text-decoration: none;
+  text-transform: uppercase;
+  align-items: center;
+  margin: auto 20px;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  background-color: orange;
+}
+
+.icon-class {
+  width: 30px;
+  padding: 0 20px;
   font-size: 20px;
-  color: #818181;
+}
+
+.menu-item-NX {
+  margin: auto;
+  width: 4.5em;
+}
+
+.menu-item:hover > .tooltip {
   display: block;
 }
 
-.side-navbar a:hover {
-  color: #f1f1f1;
-}
+.tooltip {
+  display: none;
+  position: absolute;
+  left: 99%;
+  bottom: 80%;
 
-.side-navbar .active {
-  background-color: #4caf50;
-  color: white;
-}
+  width: auto;
+  padding: 4px, 8px;
 
-.openSide-btn {
-  font-size: 2rem;
+  border-radius: 15px 15px 15px 0;
+  white-space: nowrap;
+  background-color: rgb(0, 145, 255);
+  border: 2px solid rgb(111, 192, 246);
+  padding: 10px;
 }
