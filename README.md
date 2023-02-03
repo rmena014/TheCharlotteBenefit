@@ -1,3 +1,4 @@
+[logo](src/images/TCBWhite.webp)
 # The Charlotte Benefit
 Welcome to The Charlotte Benefit, a platform dedicated to providing adults with alternative routes for skill building and job preparation. Our site offers a variety of resources and courses that can be accessed after registering and logging into your account.
 
@@ -17,3 +18,4 @@ Practice coding feature (in beta) where you can write HTML, CSS, and JavaScript
 - Practice coding and improve your coding skills
 
 ### Start your journey towards better skills and job preparedness today. Sign up for Charlotte Benefit now!
+### http://ec2-54-144-144-29.compute-1.amazonaws.com/home
