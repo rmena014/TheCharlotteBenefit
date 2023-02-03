@@ -43,12 +43,14 @@ const TextEditor: React.FC<TextEditorProps> = (props) => {
         onChange={setHtmlCode}
       />
       <AceEditor
+        className="editor-box"
         mode="css"
         theme="monokai"
         value={cssCode}
         onChange={setCssCode}
       />
       <AceEditor
+        className="editor-box"
         mode="javascript"
         theme="monokai"
         value={jsCode}

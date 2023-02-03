@@ -28,8 +28,7 @@ const Profile: React.FC = () => {
       setError("No email found in local storage.");
       return;
     }
-
-    fetch(`http://localhost:3001/api/users/${email}`)
+    fetch(`http://ec2-54-144-144-29.compute-1.amazonaws.com/api/users/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data[0]);
@@ -49,14 +48,14 @@ const Profile: React.FC = () => {
       <SideNavBar />
       <div className="profile-main">
         {/* <h2>Hello {user.name}! Welcome to your profile page</h2>
-        <p>Email: {user.email}</p>
-        <p>Role: {user.role}</p> */}
+      <p>Email: {user.email}</p>
+      <p>Role: {user.role}</p> */}
 
         <div className="p-16 bg-gray-200">
           <div className="p-8 bg-white rounded shadow mt-24">
             <div className="grid grid-cols-1 md:grid-cols-3">
               <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
-                <div className="px-2 border-r border-gray-400">
+                <div className="px-2 ">
                   <p className="font-bold text-gray-700 text-xl">0</p>
                   <p className="text-gray-400">Courses</p>
                 </div>

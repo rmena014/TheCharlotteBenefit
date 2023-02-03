@@ -20,12 +20,15 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/api/signup", {
-        name,
-        email,
-        password,
-        role,
-      });
+      const response = await axios.post(
+        "http://ec2-54-144-144-29.compute-1.amazonaws.com/api/signup",
+        {
+          name,
+          email,
+          password,
+          role,
+        }
+      );
       console.log(response);
       setSubmitted(true);
       closeModal();
@@ -40,7 +43,6 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
       navigate(`/home`);
     }
   }, [submitted, navigate, name]);
-
   return (
     <div className="modal-overlay">
       <div className="modal-content p-6 rounded-lg shadow-md">
@@ -97,4 +99,3 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
 };
 
 export default SignUpModal;
-  

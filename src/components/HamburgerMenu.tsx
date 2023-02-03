@@ -23,7 +23,7 @@ const HamburgerMenu: React.FC = () => {
       />
       {isOpen && (
         <ul className={`menu-list ${isOpen ? "is-open" : ""}`}>
-          <li className="menu-item">
+          <li className="menu-item2">
             <Link
               activeClass="active"
               to="section1"
@@ -36,7 +36,7 @@ const HamburgerMenu: React.FC = () => {
               Home <AiFillHome className="icon" />
             </Link>
           </li>
-          <li className="menu-item">
+          <li className="menu-item2">
             <Link
               activeClass="active"
               to="section2"
@@ -49,7 +49,7 @@ const HamburgerMenu: React.FC = () => {
               About <AiFillInfoCircle className="icon" />
             </Link>
           </li>
-          <li className="menu-item">
+          <li className="menu-item2">
             <Link
               activeClass="active"
               to="section3"
@@ -62,7 +62,7 @@ const HamburgerMenu: React.FC = () => {
               Mission <AiTwotoneTrophy className="icon" />
             </Link>
           </li>
-          <li className="menu-item">
+          <li className="menu-item2">
             <Link
               activeClass="active"
               to="section4"
