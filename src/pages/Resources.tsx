@@ -41,11 +41,18 @@ const Resources: React.FC = () => {
         </div>
         <div className="materials">
           {filteredMaterials.map((material) => (
-            <div key={material.material_id} className="material">
-              <h3>{material.type}</h3>
-              <a href={material.url} target="_blank">
-                {material.url}
-              </a>
+            <div key={material.material_id} className="material-card">
+              <div className="material-card-content">
+                <h3>{material.title}</h3>
+                <p>Type: {material.type}</p>
+                <a
+                  href={material.url}
+                  target="_blank"
+                  className="material-link"
+                >
+                  View Resource
+                </a>
+              </div>
             </div>
           ))}
         </div>

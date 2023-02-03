@@ -8,7 +8,7 @@ const SignUp: React.FC = () => {
   return (
     <div>
       <button
-        className="bg-red-600 text-white rounded-lg py-2 px-4 transition duration-1000 ease-in-out hover:bg-red-500"
+        className="bg-blue-600 text-white rounded-lg py-2 px-4 transition duration-1000 ease-in-out hover:bg-blue-900"
         onClick={openModal}
       >
         Get Started

@@ -1,5 +1,5 @@
 .side-nav-container {
-  background-color: black;
+  background-color: rgb(33, 93, 130);
   width: 300px;
   height: 100%;
   position: fixed;
@@ -26,11 +26,17 @@
 
 .nav-brand {
   display: flex;
+  align-items: center;
 }
 
 .nav-brand img {
-  width: 40px;
+  width: 30%;
   padding: 0 10px;
+  filter: invert();
+}
+
+.nav-brand h2 {
+  font-weight: 900;
 }
 
 .hamburger2 {
@@ -43,7 +49,7 @@
 
   margin: auto;
   background-color: white;
-  border: 2px solid lightblue;
+  border: 2px solid rgb(9, 82, 107);
   padding: 20px;
   border-radius: 90px;
   height: 71px;
@@ -53,7 +59,7 @@
 .hamburger2 span {
   display: block;
   margin-top: 5px;
-  background-color: lightblue;
+  background-color: rgb(21, 119, 205);
   border-radius: 15px;
   height: 4px;
   width: 30px;
@@ -109,7 +115,7 @@
 }
 
 .menu-item:hover {
-  background-color: orange;
+  background-color: rgb(11, 47, 78);
 }
 
 .icon-class {

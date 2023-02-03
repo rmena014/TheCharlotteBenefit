@@ -33,7 +33,6 @@ const TextEditor: React.FC<TextEditorProps> = (props) => {
       console.log(error);
     }
   };
-
   return (
     <div className="editor-container">
       <AceEditor

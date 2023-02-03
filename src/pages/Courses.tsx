@@ -4,8 +4,9 @@ import "./pages.css";
 import axios from "axios";
 
 const Courses: React.FC = () => {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Array<any>>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,11 +15,17 @@ const Courses: React.FC = () => {
       });
       setCourses(result.data);
     };
+
     fetchData();
   }, [searchTerm]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleEnroll = () => {
+    setShowModal(true);
+    setTimeout(() => setShowModal(false), 2000);
   };
 
   return (
@@ -30,7 +37,7 @@ const Courses: React.FC = () => {
           placeholder="Search by course name"
           value={searchTerm}
           onChange={handleChange}
-          className="bg-gray-200 rounded-lg p-2 w-89 focus:outline-none focus:shadow-outline"
+          className="search-bar bg-gray-200 rounded-lg mt-2 ml-2 p-2 w-89 focus:outline-none focus:shadow-outline"
         />
         <div className="course-cards">
           {courses.map((course) => {
@@ -47,7 +54,10 @@ const Courses: React.FC = () => {
                 <p className="course-instructor">
                   Instructor: {course.instructor}
                 </p>
-                <button className="enroll-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5">
+                <button
+                  className="enroll-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5"
+                  onClick={() => handleEnroll()}
+                >
                   Enroll
                 </button>
               </div>
@@ -55,6 +65,15 @@ const Courses: React.FC = () => {
           })}
         </div>{" "}
       </div>
+      {showModal && (
+        <div className="modal-overlay ">
+          <div className="modal-content bg-green-500 rounded-lg p-5 text-white text-center ">
+            <p className="success-message text-green-500 ">
+              You are successfully enrolled!
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

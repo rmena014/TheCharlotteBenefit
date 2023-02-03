@@ -2,6 +2,7 @@ import React from "react";
 import SignUpImage from "../images/istockphoto-1135341047-612x612.webp";
 import LearnImage from "../images/learning-vs-training-cover.webp";
 import ApplyImage from "../images/what-is-a-coding-project.webp";
+import LoginImage from "../images/sale_25313_primary_image_wide.webp";
 import "./AboutUsInfo.css";
 
 interface AboutUsInfoProps {}
@@ -23,8 +24,8 @@ const AboutUsInfo: React.FC<AboutUsInfoProps> = () => {
             <div className="font-bold text-xl mb-2">1. Sign Up</div>
             <p className="text-gray-700 text-base">
               Convenient and easy registration process. Access to personalized
-              learning paths and resources. Stay up-to-date with new content and
-              job opportunities.
+              learning paths and resources. Stay up-to-date with new tech
+              content and courses.
             </p>
           </div>
           <div className="px-6 pt-4 pb-2">
@@ -42,7 +43,7 @@ const AboutUsInfo: React.FC<AboutUsInfoProps> = () => {
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
           <img
             className="w-full"
-            src={LearnImage}
+            src={LoginImage}
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
@@ -79,13 +80,13 @@ const AboutUsInfo: React.FC<AboutUsInfoProps> = () => {
           </div>
           <div className="px-6 pt-4 pb-2">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #JAVASCRIPT
+              #PHP
             </span>
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #HTML
+              #MachineLearning
             </span>
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #CSS
+              #ArtificialIntelligenceIsAWESOME!
             </span>
           </div>
         </div>{" "}
@@ -96,11 +97,11 @@ const AboutUsInfo: React.FC<AboutUsInfoProps> = () => {
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">3. Apply and Repeat</div>
+            <div className="font-bold text-xl mb-2">4. Apply and Repeat</div>
             <p className="text-gray-700 text-base">
-              Get connected with top tech companies. Get access to exclusive job
-              listings and career events. Enhance your chances of landing your
-              dream tech job.
+              Put your skills into action and create projects. Build your
+              resume, create your portfolio and the possibilities will be
+              endless!
             </p>
           </div>
           <div className="px-6 pt-4 pb-2">

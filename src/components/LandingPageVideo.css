@@ -9,12 +9,10 @@ video {
   position: relative; /* needed for absolute positioning of the button */
 }
 
-.site-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay {
@@ -40,6 +38,7 @@ video {
   padding: 10px;
   border-radius: 5px;
   transition: all 0.8s ease;
+  margin-top: 25%;
 }
 
 .site-button:hover {
@@ -55,6 +54,5 @@ video {
 }
 
 .content {
-  display: flex;
   align-items: center;
 }

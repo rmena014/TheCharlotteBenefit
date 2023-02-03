@@ -17,7 +17,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3001/api/signup", {
@@ -28,6 +28,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
       });
       console.log(response);
       setSubmitted(true);
+      closeModal();
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +37,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
 
   useEffect(() => {
     if (submitted) {
-      navigate(`/profile`);
+      navigate(`/home`);
     }
   }, [submitted, navigate, name]);
 
@@ -51,6 +52,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
           <input
             className="border rounded-lg p-2 w-full"
             type="text"
+            placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -59,6 +61,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
           <input
             className="border rounded-lg p-2 w-full"
             type="email"
+            placeholder="charlotteb@gmaill.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -67,6 +70,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
           <input
             className="border rounded-lg p-2 w-full"
             type="password"
+            placeholder="Secure Password Here"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -83,7 +87,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
             <option value="User">User</option>
           </select>
           <br />
-          <button className="bg-red-600 text-white rounded-lg py-2 px-4 hover:bg-red-500 mt-5 ">
+          <button className="bg-blue-600 text-white rounded-lg py-2 px-4 hover:bg-blue-500 mt-5 ">
             Sign Up
           </button>{" "}
         </form>{" "}
@@ -93,3 +97,4 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ closeModal }) => {
 };
 
 export default SignUpModal;
+  

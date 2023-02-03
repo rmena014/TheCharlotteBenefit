@@ -52,6 +52,7 @@ const ContactForm: React.FC = () => {
             id="name"
             type="text"
             name="name"
+            placeholder="Full Name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -69,6 +70,7 @@ const ContactForm: React.FC = () => {
             id="email"
             type="email"
             name="email"
+            placeholder="email@goeshere.com"
             value={formData.email}
             onChange={handleChange}
             required
@@ -90,7 +92,7 @@ const ContactForm: React.FC = () => {
             required
           />
         </div>
-        <button className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600">
+        <button className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-900">
           Submit
         </button>
       </form>

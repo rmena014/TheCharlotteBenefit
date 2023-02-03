@@ -28,11 +28,6 @@ const SideNavBar = () => {
       link: "/profile/courses",
     },
     {
-      text: "Opportunities",
-      icon: <AiOutlineFileSearch />,
-      link: "/profile/opportunities",
-    },
-    {
       text: "Practice (Beta)",
       icon: <AiOutlineCode />,
       link: "/profile/practice",
@@ -51,7 +46,7 @@ const SideNavBar = () => {
           {isExpanded && (
             <div className="nav-brand">
               <img src={logoimage} alt="logo"></img>
-              <h2>The Charlotte Benefit</h2>
+              <h2>TCB</h2>
             </div>
           )}
           <button

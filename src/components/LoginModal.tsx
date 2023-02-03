@@ -39,11 +39,12 @@ const LoginModal: React.FC<Props> = ({ closeModal }) => {
         <button onClick={closeModal} className="close-button">
           <AiFillCloseSquare />
         </button>
-        <form onSubmit={handleLogin} className="w-full flex flex-col">
+        <form onSubmit={handleLogin} className="w-full flex flex-col ">
           <label className="block font-medium text-lg mb-2">Email:</label>
           <input
             className="border rounded-lg p-2 w-full"
             type="email"
+            placeholder="Enter your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -52,19 +53,19 @@ const LoginModal: React.FC<Props> = ({ closeModal }) => {
           <input
             className="border rounded-lg p-2 w-full"
             type="password"
+            placeholder="Enter your Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
           <br />
-          <button className="bg-red-600 text-white rounded-lg py-2 px-4 hover:bg-red-500 mt-5">
+          <button className="bg-blue-800 text-white rounded-lg py-2 px-4 transition duration-1000 ease-in-out hover:bg-blue-500 mt-5 ">
             Login
-          </button>
-        </form>
+          </button>{" "}
+        </form>{" "}
       </div>
     </div>
   );
 };
 
 export default LoginModal;
-    
