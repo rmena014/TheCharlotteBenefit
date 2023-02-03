@@ -78,7 +78,7 @@ const MissionStatementInfo: React.FC<Props> = () => {
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center space-x-3">
-            <div className="space-y-0.5 font-medium dark:text-white text-left">
+            <div className="space-y-0.5 font-medium dark:text-white text-center">
               <div>Kevin Taylor</div>
               <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                 CTO at The Charlotte Benefit
